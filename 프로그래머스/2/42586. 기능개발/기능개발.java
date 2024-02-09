@@ -19,20 +19,22 @@ class Solution {
                 }
                 queue.offer(result);
             }
-
+        
             while (!queue.isEmpty()) {
+                
                 if (temp >= queue.peek()) {
                     queue.poll();
                 } else {
                     temp = queue.poll();
                 }
+                
                 cnt++;
 
                 if (queue.isEmpty()) { // 마지막 값이라면
-                    answer.offer(cnt);
+                    answer.add(cnt);
                 } else if (queue.peek() > temp) {
                     // 뒷 값이 더 큰 경우
-                    answer.offer(cnt);
+                    answer.add(cnt);
                     cnt = 0;
                     temp = 0;
                 }
